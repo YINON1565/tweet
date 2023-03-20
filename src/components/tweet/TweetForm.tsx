@@ -44,8 +44,22 @@ const TweetForm = () => {
       }}
       variant="outlined"
     >
-      <Typography component="b">{MY_NAME}</Typography>
+      <Typography
+        sx={{
+          fontSize: 15,
+          fontWeight: 600,
+        }}
+      >
+        {MY_NAME}
+      </Typography>
       <TextField
+        inputProps={{
+          style: {
+            fontSize: 20,
+            lineHeight: 1.3125,
+            letterSpacing: "-0.00833em",
+          },
+        }}
         multiline
         variant="standard"
         value={text}
