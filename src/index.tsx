@@ -1,9 +1,21 @@
-import { StrictMode } from "react";
+import { FC, ReactNode, StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RecoilRoot } from "recoil";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+import { createTheme, ThemeProvider } from "@mui/material";
+
+const CustomThemeProvider: FC<{ children: ReactNode }> = (props) => {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#1DA1F2",
+      },
+    },
+  });
+  return <ThemeProvider {...props} theme={theme} />;
+};
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +23,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <RecoilRoot>
-      <App />
+      <CustomThemeProvider>
+        <App />
+      </CustomThemeProvider>
     </RecoilRoot>
   </StrictMode>
 );
