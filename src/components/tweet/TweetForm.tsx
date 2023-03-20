@@ -89,6 +89,7 @@ const TweetForm = () => {
             disabled={text.length === 0 || MAX_LIMIT < text.length}
             sx={{
               borderRadius: "100vh",
+              boxShadow: "none",
               color: "white",
               textTransform: "capitalize",
               fontWeight: 600,
